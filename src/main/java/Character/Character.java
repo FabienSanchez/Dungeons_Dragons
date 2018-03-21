@@ -1,9 +1,31 @@
 package Character;
 
-abstract public class Character {
+import Character.Weapon.Weapon;
+
+import java.util.List;
+import java.util.ArrayList;
+
+abstract public class Character implements Fighting {
     private String nom, image;
     private int life, strength;
-    private Object weapon, secondary;
+    protected List<Weapon> weapons = new ArrayList<Weapon>();
+    private Object secondary;
+
+    public List<Weapon> getWeapons() {
+        return weapons;
+    }
+
+    public void setWeapons(List<Weapon> weapons) {
+        this.weapons = weapons;
+    }
+
+    public void addWeapon(Weapon weapon) {
+        this.weapons.add(weapon);
+    }
+
+    public void hit() {
+        System.out.println("Je tape à " + getStrength());
+    }
 
     public String getNom() {
         return nom;
@@ -37,14 +59,6 @@ abstract public class Character {
         this.strength = strength;
     }
 
-    public Object getWeapon() {
-        return weapon;
-    }
-
-    public void setWeapon(Object weapon) {
-        this.weapon = weapon;
-    }
-
     public Object getSecondary() {
         return secondary;
     }
@@ -55,13 +69,26 @@ abstract public class Character {
 
     @Override
     public String toString() {
-        return "Character{" +
-                "nom='" + getNom() + '\'' +
-                ", image='" + getImage() + '\'' +
-                ", life=" + getLife() +
-                ", strength=" + getStrength() +
-                ", weapon=" + getWeapon() +
-                ", secondary=" + getSecondary() +
+        return "nom='" + nom + '\'' +
+                ", image='" + image + '\'' +
+                ", life=" + life +
+                ", strength=" + strength +
+                ", weapons=" + weapons +
+                ", secondary=" + secondary +
                 '}';
+    }
+
+    public Character(String nom, String image, int life, int strength) {
+        this.nom = nom;
+        this.image = image;
+        this.life = life;
+        this.strength = strength;
+    }
+
+    public Character(String nom) {
+        this.nom = nom;
+    }
+
+    public Character() {
     }
 }
