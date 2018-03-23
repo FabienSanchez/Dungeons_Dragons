@@ -23,8 +23,14 @@ abstract public class Character implements Fighting {
         this.weapons.add(weapon);
     }
 
-    public void hit() {
-        System.out.println("Je tape à " + getStrength());
+    public void hit(int power) {
+        if (this.getStrength() >= power) {
+            System.out.println("Je tape à " + power);
+            setStrength(getStrength() - power);
+            System.out.println("Nouvelle force d'attaque : " + getStrength());
+        } else {
+            System.out.println("Impossible d'attaquer à " + power);
+        }
     }
 
     public String getNom() {
@@ -78,17 +84,17 @@ abstract public class Character implements Fighting {
                 '}';
     }
 
-    public Character(String nom, String image, int life, int strength) {
+    Character(String nom, String image, int life, int strength) {
         this.nom = nom;
         this.image = image;
         this.life = life;
         this.strength = strength;
     }
 
-    public Character(String nom) {
+    Character(String nom) {
         this.nom = nom;
     }
 
-    public Character() {
+    Character() {
     }
 }

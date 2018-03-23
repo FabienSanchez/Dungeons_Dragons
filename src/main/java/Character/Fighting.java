@@ -1,5 +1,5 @@
 package Character;
 
 public interface Fighting {
-    void hit();
+    void hit(int power);
 }

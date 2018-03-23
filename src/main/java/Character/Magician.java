@@ -8,14 +8,14 @@ public class Magician extends Character {
                 super.toString();
     }
 
-    public Magician(String nom, String image, int life, int strength) {
+    Magician(String nom, String image, int life, int strength) {
         super(nom, image, life, strength);
     }
 
-    public Magician(String nom) {
+    Magician(String nom) {
         super(nom);
     }
 
-    public Magician() {
+    Magician() {
     }
 }

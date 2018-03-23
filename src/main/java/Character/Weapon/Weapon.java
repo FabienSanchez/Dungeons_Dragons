@@ -16,4 +16,11 @@ abstract public class Weapon {
         return "nom='" + nom + '\'' +
                 '}';
     }
+
+    Weapon(String nom) {
+        this.nom = nom;
+    }
+
+    Weapon() {
+    }
 }
