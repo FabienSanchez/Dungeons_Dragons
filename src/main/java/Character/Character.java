@@ -23,6 +23,10 @@ abstract public class Character implements Fighting {
         this.weapons.add(weapon);
     }
 
+    public void removeWeapon(int i) {
+        this.weapons.remove(i);
+    }
+
     public void hit(int power) {
         if (this.getStrength() >= power) {
             System.out.println("Je tape à " + power);

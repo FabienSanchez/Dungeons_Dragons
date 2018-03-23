@@ -445,7 +445,7 @@ public class Main {
                     try {
                         i = Integer.parseInt(str);
                         try {
-                            weapons.remove(i);
+                            character.removeWeapon(i);
                         } catch (IndexOutOfBoundsException e) {
                             System.out.println("L'arme n'existe pas");
                         }
@@ -474,8 +474,10 @@ public class Main {
             System.out.println(
                     "Menu :" +
                             "\n\t1 - Créer des armes" +
-                            "\n\t2 - Ajouter une arme" +
-                            "\n\t3 - Enlever une arme" +
+                            "\n\t2 - Afficher toutes les armes" +
+                            "\n\t3 - Afficher les armes du personnage" +
+                            "\n\t4 - Ajouter une arme" +
+                            "\n\t5 - Enlever une arme" +
                             "\n\n\t7 - Quitter");
 
             switch (intChoice()) {
@@ -483,6 +485,12 @@ public class Main {
                     loopCreateWeap();
                     break;
                 case 2:
+                    listWeapons(weapons);
+                    break;
+                case 3:
+                    listWeapons(character.getWeapons());
+                    break;
+                case 4:
                     Weapon weapon = selectWeapon(clazz);
                     if (weapon != null) {
                         if (!character.getWeapons().contains(weapon)) {
@@ -492,7 +500,7 @@ public class Main {
                         }
                     }
                     break;
-                case 3:
+                case 5:
                     removeWeapon(character);
                     break;
                 case 7:
